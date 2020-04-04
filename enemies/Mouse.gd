@@ -5,7 +5,7 @@ var think = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	SPEED = 120
+	SPEED = 80
 	movedir = dir.center
 	
 func _physics_process(delta):

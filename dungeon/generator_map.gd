@@ -21,8 +21,8 @@ func _ready():
 	while len(array) < rooms:
 		propose_room()
 		
-	build_rooms() #dont forget to change spawn room
-	#minimap()
+	#build_rooms() #dont forget to change spawn room
+	minimap()
 		
 func propose_room():
 	var vector = dir.rand()
@@ -32,8 +32,7 @@ func propose_room():
 		current_room += vector
 	else: 
 		current_room = array[randi()%len(array)]
-
-
+		
 func build_rooms():
 	for i in array:
 		var rand = randi()%2
@@ -43,7 +42,7 @@ func build_rooms():
 		if rand == 1:
 			var room = RoomScene2.instance()
 			add_room(room, i)
-		
+			
 
 func add_room(room, i):
 	room.position = Vector2(WINDOW_WIDTH*i.x, WINDOW_HEIGHT*i.y) - Vector2(WINDOW_WIDTH, WINDOW_HEIGHT)/2

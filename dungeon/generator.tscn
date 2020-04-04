@@ -1,55 +1,21 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://dungeon/generator.gd" type="Script" id=1]
-[ext_resource path="res://art/minimap.png" type="Texture" id=2]
+[ext_resource path="res://dungeon/rooms/Map.tres" type="TileSet" id=2]
 [ext_resource path="res://players/Player1.tscn" type="PackedScene" id=3]
-
-[sub_resource type="TileSet" id=1]
-0/name = "minimap.png 0"
-0/texture = ExtResource( 2 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 64, 32 )
-0/tile_mode = 1
-0/autotile/bitmask_mode = 2
-0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 186, Vector2( 0, 1 ), 184, Vector2( 0, 2 ), 144, Vector2( 0, 3 ), 176, Vector2( 1, 1 ), 178, Vector2( 1, 2 ), 48, Vector2( 1, 3 ), 56, Vector2( 2, 0 ), 152, Vector2( 2, 1 ), 154, Vector2( 2, 2 ), 24, Vector2( 2, 3 ), 50, Vector2( 3, 0 ), 146, Vector2( 3, 1 ), 58, Vector2( 3, 2 ), 18, Vector2( 3, 3 ), 26 ]
-0/autotile/icon_coordinate = Vector2( 0, 0 )
-0/autotile/tile_size = Vector2( 16, 8 )
-0/autotile/spacing = 0
-0/autotile/occluder_map = [  ]
-0/autotile/navpoly_map = [  ]
-0/autotile/priority_map = [  ]
-0/autotile/z_index_map = [  ]
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shapes = [  ]
-0/z_index = 0
-1/name = "minimap.png 1"
-1/texture = ExtResource( 2 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 0, 32, 16, 8 )
-1/tile_mode = 0
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shapes = [  ]
-1/z_index = 0
-2/name = "minimap.png 2"
-2/texture = ExtResource( 2 )
-2/tex_offset = Vector2( 0, 0 )
-2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 16, 32, 16, 8 )
-2/tile_mode = 0
-2/occluder_offset = Vector2( 0, 0 )
-2/navigation_offset = Vector2( 0, 0 )
-2/shapes = [  ]
-2/z_index = 0
+[ext_resource path="res://MarginContainer.tscn" type="PackedScene" id=4]
 
 [node name="TileMap" type="TileMap"]
-tile_set = SubResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 8 )
 cell_custom_transform = Transform2D( 16, 0, 0, 8, 0, 0 )
 format = 1
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
+z_index = 10
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 4 )]

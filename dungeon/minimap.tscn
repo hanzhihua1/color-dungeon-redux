@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://art/GUI.png" type="Texture" id=1]
+[ext_resource path="res://dungeon/generator_map.tscn" type="PackedScene" id=2]
+[ext_resource path="res://dungeon/minimap.gd" type="Script" id=3]
+
+[node name="MarginContainer" type="MarginContainer"]
+margin_right = 104.0
+margin_bottom = 104.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_right = 104.0
+margin_bottom = 104.0
+texture = ExtResource( 1 )
+region_rect = Rect2( 368, 0, 48, 48 )
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 40
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 96.0
+margin_bottom = 96.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileMap" parent="NinePatchRect/MarginContainer" instance=ExtResource( 2 )]
+position = Vector2( 44, 44 )
+cell_size = Vector2( 8, 8 )
