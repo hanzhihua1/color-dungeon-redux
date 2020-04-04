@@ -25,12 +25,29 @@ func _physics_process(delta):
 	animate_sprite()
 	
 func animate_sprite():
-	match movedir:
-		Vector2(0, 1):
-			$AnimatedSprite.animation = 'down'
-		Vector2(0, -1):
-			$AnimatedSprite.animation = 'up'
-		Vector2(1, 0):
-			$AnimatedSprite.animation = 'right'
-		Vector2(-1, 0):
-			$AnimatedSprite.animation = 'left'
+	if is_on_wall():
+		$AnimatedSprite.playing = true
+		if test_move(transform, Vector2(-1, 0)) and movedir == Vector2(-1, 0):
+			$AnimatedSprite.animation = 'push_left'
+		if test_move(transform, Vector2(1, 0))  and movedir == Vector2(1, 0):
+			$AnimatedSprite.animation = 'push_right'
+		if test_move(transform, Vector2(0, 1)) and movedir == Vector2(0, 1):
+			$AnimatedSprite.animation = 'push_down'
+		if test_move(transform, Vector2(0, -1)) and movedir == Vector2(0, -1):
+			$AnimatedSprite.animation = 'push_up'	
+	else:
+		match movedir:
+			Vector2(0, 1):
+				$AnimatedSprite.animation = 'down'
+				$AnimatedSprite.playing = true
+			Vector2(0, -1):
+				$AnimatedSprite.animation = 'up'
+				$AnimatedSprite.playing = true
+			Vector2(1, 0):
+				$AnimatedSprite.animation = 'right'
+				$AnimatedSprite.playing = true
+			Vector2(-1, 0):
+				$AnimatedSprite.animation = 'left'
+				$AnimatedSprite.playing = true
+			Vector2(0, 0):
+				$AnimatedSprite.playing = false
