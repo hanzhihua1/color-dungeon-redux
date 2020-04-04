@@ -19,6 +19,10 @@ config/name="color-dungeon-redux"
 run/main_scene="res://dungeon/generator.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+dir="*res://directions.gd"
+
 [display]
 
 window/size/width=512
