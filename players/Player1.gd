@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const SPEED = 80
+const SPEED = 100
 var movedir = Vector2()
 
 # Called when the node enters the scene tree for the first time.
@@ -23,7 +23,6 @@ func move():
 func _physics_process(delta):
 	move()
 	animate_sprite()
-	print(movedir)
 	
 func animate_sprite():
 	match movedir:
