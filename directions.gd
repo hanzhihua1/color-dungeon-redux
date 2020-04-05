@@ -17,3 +17,15 @@ func rand():
 			return up
 		3: 
 			return down
+			
+func orientation(d):
+	match d:
+		'left':
+			return Vector2(-1, 0)
+		'right':
+			return Vector2(1, 0)
+		'up':
+			return Vector2(0, -1)
+		'down':
+			return Vector2(0, 1)
+	

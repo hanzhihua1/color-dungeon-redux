@@ -11,18 +11,21 @@ func _ready():
 	$AnimationPlayer.play("walk_down")
 	
 
-
 func controls_loop():
 	movedir = Vector2()
 	if Input.is_action_pressed("player1left"):
 		movedir.x -= 1
+		spritedir = 'left'
 	if Input.is_action_pressed("player1right"):
 		movedir.x += 1
+		spritedir = 'right'
 	if Input.is_action_pressed("player1down"):
 		movedir.y += 1
+		spritedir = 'down'
 	if Input.is_action_pressed("player1up"):
 		movedir.y -= 1
-	if Input.is_action_just_pressed("a"):
+		spritedir = 'up'
+	if Input.is_action_just_pressed("a") and state != 'carrying':
 		use_item(preload("res://items/Sword.tscn"))
 		state = 'swing'
 		$AnimationPlayer.play('swing_'+spritedir)
@@ -33,6 +36,8 @@ func _physics_process(delta):
 			state_default()
 		'swing':
 			state_swing()
+		'carrying':
+			state_carry()
 
 
 func state_default():
@@ -70,11 +75,17 @@ func animate_movement():
 		
 
 func state_swing():
-	damage_loop()
 	movement_loop()
+	damage_loop()
 	movedir = dir.center
 
 func anim_switch(animation):
 	var new_anim = str(animation)+'_'+spritedir
 	if $AnimationPlayer.current_animation != new_anim:
 		$AnimationPlayer.play(new_anim)
+
+func state_carry():
+	anim_switch('carry')
+	controls_loop()
+	movement_loop()
+	damage_loop()

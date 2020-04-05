@@ -4,7 +4,7 @@
 [ext_resource path="res://dungeon/rooms/Map.tres" type="TileSet" id=2]
 [ext_resource path="res://players/Player1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://MarginContainer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://art/light/2DLight.png" type="Texture" id=5]
+[ext_resource path="res://items/Pot.tscn" type="PackedScene" id=5]
 
 [node name="TileMap" type="TileMap"]
 tile_set = ExtResource( 2 )
@@ -21,17 +21,9 @@ z_index = 10
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 4 )]
 
-[node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 48, 40 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
-texture_scale = 2.0
-range_height = 60.0
-shadow_enabled = true
-shadow_gradient_length = 50.0
-__meta__ = {
-"_editor_description_": ""
-}
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0.784314, 0.784314, 0.784314, 1 )
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 56, 0 )
