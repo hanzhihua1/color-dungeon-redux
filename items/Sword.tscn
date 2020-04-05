@@ -171,8 +171,9 @@ tracks/3/keys = {
 extents = Vector2( 9, 9 )
 
 [node name="Sword" type="Node2D"]
-position = Vector2( -4, -12 )
-z_index = -1
+position = Vector2( 4, 12 )
+rotation = 3.14159
+z_index = 1
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]

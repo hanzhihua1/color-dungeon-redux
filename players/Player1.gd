@@ -75,5 +75,7 @@ func animate_movement():
 
 func state_swing():
 	damage_loop()
+	movement_loop()
+	movedir = dir.center
 
 

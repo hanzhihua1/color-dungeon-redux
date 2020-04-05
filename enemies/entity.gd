@@ -18,7 +18,7 @@ func movement_loop():
 	if hitstun == 0:
 		motion = movedir.normalized()*SPEED
 	else:
-		motion = knockdir.normalized()*SPEED*1.5
+		motion = knockdir.normalized()*125
 	move_and_slide(motion)
 
 
@@ -30,7 +30,7 @@ func damage_loop():
 		if hitstun == 0 and body.get('DAMAGE') != null and body.get('TYPE') != TYPE:
 			health -= body.get('DAMAGE')
 			hitstun = 10
-			knockdir = transform.origin - body.transform.origin
+			knockdir = global_transform.origin - body.global_transform.origin
 		
 func use_item(item):
 	var newitem = item.instance()

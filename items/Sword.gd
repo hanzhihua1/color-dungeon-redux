@@ -1,5 +1,6 @@
 extends Node2D
 
+var ITEM = true
 var maxamount = 1
 var TYPE = null
 const DAMAGE = 1
@@ -12,5 +13,6 @@ func _ready():
 		get_parent().state = 'swing'
 	
 func destroy(animation):
-	get_parent().state = 'default'
+	if get_parent().has_method('state_swing'):
+		get_parent().state = 'default'
 	queue_free()
