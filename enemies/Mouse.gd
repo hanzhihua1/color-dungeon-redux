@@ -18,7 +18,7 @@ func controls_loop():
 		think -= 1
 	
 func _physics_process(delta):
-	#controls_loop()
+	controls_loop()
 	movement_loop()
 	animate_sprite()
 	damage_loop()

@@ -49,7 +49,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 8, 8 )
+extents = Vector2( 9, 9 )
 
 [node name="Mouse" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -60,7 +60,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 8 )
 animation = "down"
-frame = 1
 playing = true
 
 [node name="Hitbox" type="Area2D" parent="."]

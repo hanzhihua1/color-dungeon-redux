@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ui/health_bar.gd" type="Script" id=2]
+
+[node name="Control" type="HBoxContainer"]
+margin_left = -4.0
+margin_top = -8.0
+margin_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 15
+size_flags_vertical = 15
+custom_constants/separation = 0
+alignment = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
