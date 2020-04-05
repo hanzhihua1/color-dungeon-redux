@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/2DLight.png-5ef0cbba474afe716b1dcdd79edd5719.stex"
+path="res://.import/SwordSwing.png-028507a228dd22d6638259e857a48467.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/light/2DLight.png"
-dest_files=[ "res://.import/2DLight.png-5ef0cbba474afe716b1dcdd79edd5719.stex" ]
+source_file="res://art/SwordSwing.png"
+dest_files=[ "res://.import/SwordSwing.png-028507a228dd22d6638259e857a48467.stex" ]
 
 [params]
 
