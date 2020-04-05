@@ -8,7 +8,7 @@ func _ready():
 	SPEED = 80
 	TYPE = 'PLAYER'
 	movedir = Vector2()
-	$AnimatedSprite.animation = 'down'
+	$AnimationPlayer.play("walk_down")
 	
 
 
@@ -25,8 +25,7 @@ func controls_loop():
 	if Input.is_action_just_pressed("a"):
 		use_item(preload("res://items/Sword.tscn"))
 		state = 'swing'
-		$AnimatedSprite.frame = 0
-		$AnimatedSprite.animation = 'swing_'+spritedir
+		$AnimationPlayer.play('swing_'+spritedir)
 	
 func _physics_process(delta):
 	match state:
@@ -44,38 +43,38 @@ func state_default():
 	
 func animate_movement():
 	if is_on_wall():
-		$AnimatedSprite.playing = true
 		if test_move(transform, Vector2(-1, 0)) and movedir == Vector2(-1, 0):
-			$AnimatedSprite.animation = 'push_left'
+			$AnimationPlayer.play("push_left")
 		if test_move(transform, Vector2(1, 0))  and movedir == Vector2(1, 0):
-			$AnimatedSprite.animation = 'push_right'
+			$AnimationPlayer.play("push_right")
 		if test_move(transform, Vector2(0, 1)) and movedir == Vector2(0, 1):
-			$AnimatedSprite.animation = 'push_down'
+			$AnimationPlayer.play("push_down")
 		if test_move(transform, Vector2(0, -1)) and movedir == Vector2(0, -1):
-			$AnimatedSprite.animation = 'push_up'	
+			$AnimationPlayer.play("push_up")
 	else:
 		match movedir:
 			Vector2(0, 1):
 				spritedir = 'down'
+				anim_switch('walk')
 			Vector2(0, -1):
 				spritedir = 'up'
+				anim_switch('walk')
 			Vector2(1, 0):
 				spritedir = 'right'
+				anim_switch('walk')
 			Vector2(-1, 0):
 				spritedir = 'left'
-		match spritedir:
-			'down':
-				$AnimatedSprite.animation = 'down'
-			'up':
-				$AnimatedSprite.animation = 'up'
-			'right':
-				$AnimatedSprite.animation = 'right'
-			'left':
-				$AnimatedSprite.animation = 'left'
+				anim_switch('walk')
+			Vector2(0, 0):
+				anim_switch('idle')
+		
 
 func state_swing():
 	damage_loop()
 	movement_loop()
 	movedir = dir.center
 
-
+func anim_switch(animation):
+	var new_anim = str(animation)+'_'+spritedir
+	if $AnimationPlayer.current_animation != new_anim:
+		$AnimationPlayer.play(new_anim)

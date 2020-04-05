@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="color-dungeon-redux"
 run/main_scene="res://dungeon/generator.tscn"
-config/icon="res://icon.png"
+config/icon="res://art/health_bar/health_full.png"
 
 [autoload]
 
