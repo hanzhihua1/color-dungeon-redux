@@ -4,7 +4,7 @@ extends HBoxContainer
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var health = 3
+onready var health = get_parent().health
 var heart_containers = 5
 
 var heart_full = preload("res://art/health_bar/health_full.png")
@@ -21,6 +21,10 @@ func _ready():
 		add_child(heart)
 	update_partial(health)
 
+func _process(delta):
+	if get_parent().health != null:
+		health = get_parent().health
+		update_partial(health)
 
 func update_partial(value):
 	for i in get_child_count():

@@ -6,7 +6,6 @@ var think = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SPEED = 80
-	TYPE = 'ENEMY'
 	DAMAGE = 1
 	movedir = dir.center
 	

@@ -6,8 +6,9 @@ var state = 'default'
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SPEED = 80
-	TYPE = 'PLAYER'
 	movedir = Vector2()
+	DAMAGE = 0
+	health = 10
 	$AnimationPlayer.play("walk_down")
 	
 
@@ -89,3 +90,4 @@ func state_carry():
 	controls_loop()
 	movement_loop()
 	damage_loop()
+	

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://ui/health_bar.gd" type="Script" id=2]
 
-[node name="Control" type="HBoxContainer"]
+[node name="Health" type="HBoxContainer"]
 margin_left = -4.0
 margin_top = -8.0
 margin_right = 4.0
