@@ -27,7 +27,7 @@ shape = SubResource( 2 )
 
 [node name="Pickbox" type="Area2D" parent="."]
 collision_layer = 8
-collision_mask = 0
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pickbox"]
 shape = SubResource( 3 )

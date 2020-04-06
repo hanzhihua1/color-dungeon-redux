@@ -9,17 +9,17 @@ var picked_player
 var initial_position = Vector2()
 var final_position = Vector2()
 var t = 0
-var throw_times = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	DAMAGE = 0
-	health = 99
+	DAMAGE = 1
+	health = 3
 	
 func _physics_process(delta):
+	damage_loop()
 	match state:
 		'ground':
-			if throw_times == 0:
+			if health == 0:
 				queue_free()
 		'picked':
 			self.position = picked_player.global_position + Vector2(0, -12)
@@ -32,7 +32,7 @@ func _physics_process(delta):
 					var pos = initial_position.linear_interpolate(final_position, t)
 					self.position.y = pos.y
 			else:
-				throw_times -= 1
+				health -= 1
 				state = 'ground'
 				set_collision_layer_bit(3, true)
 				set_collision_mask_bit(1, true)

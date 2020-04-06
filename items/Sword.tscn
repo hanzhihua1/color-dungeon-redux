@@ -171,7 +171,7 @@ tracks/3/keys = {
 extents = Vector2( 9, 9 )
 
 [node name="Sword" type="Node2D"]
-position = Vector2( 4, 12 )
+position = Vector2( -11, 2 )
 rotation = 3.14159
 z_index = 1
 script = ExtResource( 3 )
@@ -179,6 +179,7 @@ script = ExtResource( 3 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = SubResource( 1 )
 hframes = 3
+frame = 2
 __meta__ = {
 "_edit_lock_": true
 }
@@ -189,14 +190,14 @@ anims/swing_left = SubResource( 2 )
 anims/swing_right = SubResource( 3 )
 anims/swing_up = SubResource( 4 )
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 28
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource( 5 )
 __meta__ = {
 "_edit_lock_": true
