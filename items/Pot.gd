@@ -12,10 +12,12 @@ var t = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	DAMAGE = 1
+	DAMAGE = 5
 	health = 3
 	
+	
 func _physics_process(delta):
+	print(health)
 	damage_loop()
 	match state:
 		'ground':
@@ -54,6 +56,9 @@ func _input(event):
 						state = 'picked'
 						set_collision_layer_bit(3, false)
 						set_collision_mask_bit(1, false)
+						$Hurtbox.set_collision_mask_bit(4, false)
+						$Hurtbox.set_collision_layer_bit(4, true)
+						
 			'picked':
 				movedir = dir.orientation(picked_player.spritedir)
 				state = 'thrown'
@@ -61,8 +66,6 @@ func _input(event):
 				initial_position = self.position
 				final_position = picked_player.global_position + DISTANCE*16*movedir
 				t = 0
-				$Hurtbox.set_collision_mask_bit(4, false)
-				$Hurtbox.set_collision_layer_bit(4, true)
 				$Hurtbox.set_collision_layer_bit(3, false)
 				$Hurtbox.set_collision_mask_bit(2, true)
 				

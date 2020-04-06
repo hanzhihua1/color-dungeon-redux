@@ -7,6 +7,7 @@ var think = 0
 func _ready():
 	SPEED = 80
 	DAMAGE = 1
+	health = 2
 	movedir = dir.center
 	
 func controls_loop():
@@ -21,6 +22,9 @@ func _physics_process(delta):
 	movement_loop()
 	animate_sprite()
 	damage_loop()
+	
+	if health <= 0:
+		queue_free()
 	
 func animate_sprite():
 	match movedir:
