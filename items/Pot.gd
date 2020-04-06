@@ -19,7 +19,7 @@ func _physics_process(delta):
 	damage_loop()
 	match state:
 		'ground':
-			if health == 0:
+			if health <= 0:
 				queue_free()
 		'picked':
 			self.position = picked_player.global_position + Vector2(0, -12)
