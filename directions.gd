@@ -29,3 +29,17 @@ func orientation(d):
 		'down':
 			return Vector2(0, 1)
 	
+func color(c):
+	match c:
+		0:
+			return 'gray'
+		1:
+			return 'red'
+		2:
+			return 'blue'
+		3: 
+			return 'green'
+		4: 
+			return 'yellow' 
+		5:
+			return 'purple'

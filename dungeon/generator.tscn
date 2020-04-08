@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://dungeon/generator.gd" type="Script" id=1]
 [ext_resource path="res://dungeon/rooms/Map.tres" type="TileSet" id=2]
 [ext_resource path="res://players/Player1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://MarginContainer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://items/Pot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://enemies/Mouse.tscn" type="PackedScene" id=6]
 
 [node name="TileMap" type="TileMap"]
 tile_set = ExtResource( 2 )
@@ -15,6 +16,14 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Mouse" parent="." instance=ExtResource( 6 )]
+position = Vector2( 96, -24 )
+z_index = 1
+
+[node name="Mouse2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 104, 56 )
+z_index = 1
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 z_index = 10

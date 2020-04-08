@@ -17,7 +17,6 @@ func _ready():
 	
 	
 func _physics_process(delta):
-	print(health)
 	damage_loop()
 	match state:
 		'ground':
