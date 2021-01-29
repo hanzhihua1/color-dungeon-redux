@@ -42,9 +42,9 @@ func _physics_process(delta):
 
 
 func state_default():
+	animate_movement()
 	controls_loop()
 	movement_loop()
-	animate_movement()
 	damage_loop()
 	
 func animate_movement():
@@ -95,5 +95,18 @@ func state_carry():
 func _on_AnimationPlayer_animation_finished(anim_name):
 	# Return to walking animation after swinging when moving diagonally
 	if anim_name == 'swing_'+spritedir:
-		print('finished')
-		anim_switch('walk')
+		state = 'default'
+		match spritedir:
+			'down':
+				movedir = Vector2(0, 1)
+				anim_switch('walk')
+			'up':
+				movedir = Vector2(0, -1)
+				anim_switch('walk')
+			'left':
+				movedir = Vector2(-1, 0)
+				anim_switch('walk')
+			'right':
+				movedir = Vector2(1, 0)
+				anim_switch('walk')
+

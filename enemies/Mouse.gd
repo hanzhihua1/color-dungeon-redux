@@ -23,7 +23,7 @@ func controls_loop():
 	
 func _physics_process(delta):
 
-	if health <= 0:
+	if health <= 0 and hitstun == 0:
 		$AnimatedSprite.visible = false
 		$Death.visible = true
 		$Death.playing = true
