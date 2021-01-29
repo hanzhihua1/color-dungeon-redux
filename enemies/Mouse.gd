@@ -1,7 +1,5 @@
 extends "res://enemies/entity.gd"
 
-
-
 var think_time = 15
 var think = 0
 var COLOR = 0
@@ -24,13 +22,17 @@ func controls_loop():
 		think -= 1
 	
 func _physics_process(delta):
-	controls_loop()
-	movement_loop()
-	animate_sprite(COLOR)
-	damage_loop()
-	
+
 	if health <= 0:
-		queue_free()
+		$AnimatedSprite.visible = false
+		$Death.visible = true
+		$Death.playing = true
+		$Hurtbox/CollisionShape2D.disabled = true
+	else:
+		controls_loop()
+		animate_sprite(COLOR)
+		movement_loop()
+		damage_loop()
 	
 func animate_sprite(COLOR):
 	match movedir:
@@ -46,3 +48,7 @@ func animate_sprite(COLOR):
 		Vector2(-1, 0):
 			$AnimatedSprite.animation = COLOR+'_right'
 			$AnimatedSprite.flip_h = true
+
+
+func _on_Death_animation_finished():
+	queue_free()
