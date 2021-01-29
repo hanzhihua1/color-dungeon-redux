@@ -198,7 +198,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-scale = Vector2( 2, 2 )
+scale = Vector2( 1.8, 1.8 )
 shape = SubResource( 5 )
 __meta__ = {
 "_edit_lock_": true
