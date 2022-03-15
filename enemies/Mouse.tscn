@@ -246,7 +246,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 32 )
 animation = "blue_up"
-frame = 1
 playing = true
 
 [node name="Hurtbox" type="Area2D" parent="."]
